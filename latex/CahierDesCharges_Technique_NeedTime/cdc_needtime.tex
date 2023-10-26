@@ -1,0 +1,168 @@
+\documentclass[
+	article,			% article académique
+	11pt,				% taille de la police
+	oneside,			% impression imprimante
+	a4paper,			% taille du paper
+	chapter=TITLE,
+	french,			% langue
+	sumario=tradicional
+	]{base_nt}
+
+\usepackage{comment}
+
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+
+\definecolor{myforestgreen}{RGB}{40, 167, 69}
+\definecolor{myred}{RGB}{220, 53, 69}
+
+% Redéfinit le style des \part pour supprimer les pages générées
+\titleclass{\part}{top} % Utilise le style de section "top" pour les parties
+% Modifie l'espacement avant le titre de la partie
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+
+\titleformat{\part}[display]{\Huge}{}{-2cm}{}
+
+% commande simple pour afficher les commandes Latex sous forme de texte
+\newcommand{\comando}[1]{\textbf{$\backslash$#1}}
+
+\titulo{Cahier des charges Technique du projet NeedTime()}
+
+\tituloestrangeiro{Projet par des étudiants de l'EPITA}
+
+\autor{
+Keany Vy, Antoine, Yanis, Félix, Hamza \thanks{Ce cahier des charges a été élaboré dans le cadre d'un projet réalisé à l'EPITA - (École Pour l'Informatique et les Techniques Avancées) \url{epita.fr}} 
+\\[0.5cm]
+\href{mailto:keany-vy.khun@epita.fr}{keany-vy.khun@epita.fr}, \href{mailto:antoine.mulot@epita.fr}{antoine.mulot@epita.fr}
+\\[0.5cm]
+\href{mailto:felix.despretz@epita.fr}{felix.despretz@epita.fr}, \href{ mailto:yanis.jerjini@epita.fr}{yanis.jerjini@epita.fr}, \href{mailto:hamza.khamchane@epita.fr}{hamza.khamchane@epita.fr}
+\\[0.3cm]
+17 octobre, 2023 }
+
+
+\evento{EPITA Projet S2 - Promo 2028 - Studio NeedTime()} % Bandeau au dessus de toutes les pages
+\local{France}
+\data{Version 1.0}
+
+\begin{document}
+
+\selectlanguage{french}
+
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+
+%---
+%
+% Se desejar escrever o artigo em duas colunas, descomente a linha abaixo
+% e a linha com o texto ``FIM DE ARTIGO EM DUAS COLUNAS''.
+% \twocolumn[    		% INICIO DE ARTIGO EM DUAS COLUNAS
+%
+%---
+
+\maketitle
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+% ----------------------------------------------------------
+% Introduction
+% ----------------------------------------------------------
+%\begin{comment}
+
+\let\cleardoublepage\clearpage
+
+\part{Répartition des Tâches}
+
+\section{Tableau de répartition des tâches}
+
+\subsection{Tâches, rôles, suppléants}
+
+\begin{quadro}
+	\caption{Répartition des tâches}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Membre   & Rôle du membre & Suppléant  \\
+		\hline
+		Keany Vy & Multijoueur et réseau / Site web & Yanis \\
+		Antoine & Génération de la map / Implémentation jouabilité & Félix \\
+		Félix & Modélisation 3D et objets & Hamza \\
+            Yanis & Menu (interface), sound design / Direction artistique  & Keany Vy \\
+            Hamza & Intéraction (map / joueurs), IA  & Antoine \\
+		\hline
+		Login responsable &  Login suppléant  & \\
+            \hline
+            keany-vy.khun@epita.fr & yanis.jerjini@epita.fr & \\
+            antoine.mulot@epita.fr & felix.despretz@epita.fr & \\
+            felix.despretz@epita.fr & hamza.khamchane@epita.fr & \\
+            yanis.jerjini@epita.fr & keany-vy.khun@epita.fr & \\
+            hamza.khamchane@epita.fr & antoine.mulot@epita.fr & \\
+            \hline
+	\end{tabular}
+	\legend{Ce tableau réparti les tâches des membres de l'équipe dans le projet}
+\end{quadro}
+
+\section{Avancement et Planification}
+
+\subsection{Tableau de planification d'avancement des tâches}
+
+    \begin{center}
+    \begin{ganttchart}[
+        y unit title=0.4cm,
+        y unit chart=0.5cm,
+        vgrid,
+        hgrid,
+        title label anchor/.style={below=-1.6ex},
+        title left shift=.05,
+        title right shift=-.05,
+        title height=1,
+        progress label text={},
+        bar height=0.7,
+        group right shift=0,
+        group top shift=.6,
+        group height=.3,
+        bar/.append style={fill=myforestgreen},
+        bar/.append style={draw=black!50},
+        bar incomplete/.style={fill=myred}
+    ]{1}{24}
+    
+    % Labels
+    \gantttitle{Diagramme de Gantt}{24} \\
+    \gantttitle{Soutenance 22-29 janvier}{8}
+    \gantttitle{Soutenance 18-22 mars}{8}
+    \gantttitle{Soutenance 17-21 juin}{8} \\
+    
+    % Tâches
+    \ganttbar[progress=15]{Site web}{1}{11} 
+    \ganttbar[progress=0]{}{22}{24}\\
+    \ganttbar[progress=0]{Conception des personnages}{1}{13}
+    \ganttbar[progress=0]{}{23}{24}\\
+    \ganttbar[progress=3]{}{1}{5}
+    \ganttbar[progress=0]{Modélisation 3D}{12}{20} \\
+    \ganttbar[progress=10]{Développement Lore}{1}{17}\\
+    \ganttbar[progress=0]{Intereactions joueurs/carte}{3}{17}
+    \ganttbar[progress=0]{}{22}{24}\\
+    \ganttbar[progress=0]{Implémentation jouabilité}{5}{19}\\
+    \ganttbar[progress=0]{Intelligence artificielle}{6}{20}\\
+    \ganttbar[progress=0]{Animations}{7}{13}\\
+    \ganttbar[progress=0]{}{1}{2}
+    \ganttbar[progress=0]{Multijoueur}{9}{24} \\
+    \ganttbar[progress=0]{}{1}{3}
+    \ganttbar[progress=0]{Interface graphique du jeu}{14}{24}\\
+    \ganttbar[progress=5]{Génération de la carte}{1}{6}
+    \ganttbar[progress=0]{}{15}{24}\\
+    \ganttbar[progress=0]{}{4}{8}
+    \ganttbar[progress=0]{Textures / Rendu}{16}{24}\\
+    \ganttbar[progress=0]{Sons / Effets spéciaux}{20}{24}
+    
+    \end{ganttchart}
+    \end{center}
+    \end{document}

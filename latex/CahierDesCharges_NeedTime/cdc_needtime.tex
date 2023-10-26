@@ -10,6 +10,22 @@
 
 \usepackage{comment}
 
+\usepackage{titlesec}
+\usepackage{titletoc}
+
+\usepackage{pgfgantt}
+\usepackage{xcolor}
+
+\definecolor{myforestgreen}{RGB}{40, 167, 69}
+\definecolor{myred}{RGB}{220, 53, 69}
+
+% Redéfinit le style des \part pour supprimer les pages générées
+\titleclass{\part}{top} % Utilise le style de section "top" pour les parties
+% Modifie l'espacement avant le titre de la partie
+\titlespacing*{\part}{0pt}{0pt}{0pt}
+
+\titleformat{\part}[display]{\Huge}{}{-2cm}{}
+
 % commande simple pour afficher les commandes Latex sous forme de texte
 \newcommand{\comando}[1]{\textbf{$\backslash$#1}}
 
@@ -27,7 +43,7 @@ Keany Vy, Antoine, Yanis, Félix, Hamza \thanks{Ce cahier des charges a été é
 17 octobre, 2023 }
 
 
-\evento{EPITA Projet S2 - 2023 - Studio NeedTime()} % Bandeau au dessus de toutes les pages
+\evento{EPITA Projet S2 - Promo 2028 - Studio NeedTime()} % Bandeau au dessus de toutes les pages
 \local{France}
 \data{Version 1.0}
 
@@ -96,14 +112,15 @@ Enfin, il sera une expérience de jeu novatrice, où les joueurs devront faire d
 
 \subsection{Objectifs du cahier des charges}
 
-Le présent cahier des charges a pour objectif de fournir un cadre détaillé et structuré pour le développement du projet Betray. Il sert de document de référence essentiel pour l'équipe de développement, le studio et toutes les parties prenantes impliquées dans le projet. Les objectifs spécifiques du cahier des charges sont les suivants :
+Le présent cahier des charges a pour objectif de fournir un cadre détaillé et structuré pour le développement du projet Beyond Truth. Il sert de document de référence essentiel pour l'équipe de développement, le studio et toutes les parties prenantes impliquées dans le projet. Les objectifs spécifiques du cahier des charges sont les suivants :
 
 \begin{enumerate}
-    \item Définir la vision du projet : Le cahier des charges vise à clarifier la vision du jeu Betray, en mettant en évidence les éléments clés qui feront de ce jeu une expérience unique. Il établit le contexte, l'intrigue et les mécanismes de jeu, tout en soulignant l'importance de la déduction sociale et de la trahison comme éléments centraux de la jouabilité.
+    \item Définir la vision du projet : Le cahier des charges vise à clarifier la vision du jeu 
+    Beyond Truth, en mettant en évidence les éléments clés qui feront de ce jeu une expérience unique. Il établit le contexte, l'intrigue et les mécanismes de jeu, tout en soulignant l'importance de la déduction sociale et de la trahison comme éléments centraux de la jouabilité.
 
     \item Structurer le développement : Le cahier des charges divise le projet en sections claires, précisant les différentes étapes, les fonctionnalités et les exigences à réaliser. Il fournit un plan de travail organisé qui servira de feuille de route pour l'équipe de développement tout au long du processus.
 
-    \item Assurer la compréhension partagée : Ce document a pour objectif de garantir que tous les membres de l'équipe et toutes les parties prenantes comprennent les objectifs, les exigences et les spécifications du projet Betray. Il favorise une vision partagée, essentielle pour la coordination efficace et la réussite du projet.
+    \item Assurer la compréhension partagée : Ce document a pour objectif de garantir que tous les membres de l'équipe et toutes les parties prenantes comprennent les objectifs, les exigences et les spécifications du projet Beyond Truth. Il favorise une vision partagée, essentielle pour la coordination efficace et la réussite du projet.
 
     \item Faciliter la communication : Le cahier des charges crée un langage commun pour les discussions et les échanges au sein de l'équipe et avec les parties prenantes. Il contribue à éviter les malentendus, à résoudre les problèmes rapidement et à maintenir une communication fluide tout au long du projet.
 
@@ -111,43 +128,46 @@ Le présent cahier des charges a pour objectif de fournir un cadre détaillé et
     
 \end{enumerate}
 
-Efin, ce cahier des charges constitue un outil essentiel pour la planification, l'exécution et l'évaluation du projet Betray. Il a pour but de garantir que l'ensemble de l'équipe et des parties prenantes soient alignés sur les objectifs du projet, tout en fournissant une référence pour guider le développement vers le succès.
+Enfin, ce cahier des charges constitue un outil essentiel pour la planification, l'exécution et l'évaluation du projet Beyond Truth. Il a pour but de garantir que l'ensemble de l'équipe et des parties prenantes soient alignées sur les objectifs du projet, tout en fournissant une référence pour guider le développement vers le succès.
 
 \subsection{Présentation générale du jeu}
 
-Betray est un projet ambitieux qui vise à révolutionner le monde des jeux de plateau en proposant une expérience de jeu de déduction sociale immersive et unique. Dans un paysage de jeu saturé, Betray se distingue en mariant des éléments de survie, d'intrigue et de coopération pour créer une expérience de jeu captivante et complexe.
+Beyond Truth est un projet ambitieux qui vise à révolutionner le monde des jeux de déduction sociale en proposant une expérience de jeu immersive et unique. Dans un paysage de jeu adéquat, Beyond Truth se distingue en mariant des éléments de survie, d'intrigue et de coopération pour créer une expérience de jeu captivante et complexe.
 
 Il s'agit d'un jeu multijoueur en ligne qui emmène les joueurs sur une île mystérieuse, suite à un accident aérien, un naufrage ou d'autres scénarios intrigants. Le jeu se situe dans la catégorie des jeux de déduction sociale, où la coopération, la trahison et la déduction sont au cœur de l'expérience.
 
-L'objectif principal du jeu est de survivre sur l'île tout en établissant des alliances, en collectant des ressources et en planifiant l'évasion. Les joueurs doivent s'entraider pour rassembler les éléments nécessaires pour envoyer un signal de SOS et s'échapper de l'île. Cependant, la trahison est une menace constante, car un seul joueur peut s'échapper, créant ainsi un dilemme intense de coopération et de méfiance.
+L'objectif principal du jeu est de survivre sur l'île tout en établissant des alliances, en collectant des ressources et en planifiant une échappatoire. Les joueurs doivent s'entraider pour rassembler les éléments nécessaires afin d'envoyer un signal de SOS et s'échapper de l'île. Cependant, la trahison est une menace constante, car au plus deux joueurs peuvent s'échapper, créant ainsi un dilemme intense de coopération et de méfiance.
 
-Betray se démarque par les caractéristiques suivantes :
+Beyond Truth se démarque par les caractéristiques suivantes :
 \begin{itemize}
     \item Jeu de survie immersif : Les joueurs sont plongés dans un environnement réaliste et vivant, où la survie dépend de la coopération et de la collecte de ressources.
-    \item Déduction sociale : Betray met l'accent sur la déduction sociale, où les joueurs doivent analyser le comportement des autres pour identifier les alliés et les traîtres potentiels.
+    \item Déduction sociale : Beyond Truth met l'accent sur la déduction sociale, où les joueurs doivent analyser le comportement des autres pour identifier les alliés et les traîtres potentiels.
     \item Jour et nuit : Un cycle jour-nuit dynamique affecte la jouabilité, permettant aux joueurs de comploter pendant la nuit.
-    \item Trahison et coopération : Les joueurs peuvent former des alliances, mais la trahison est un choix possible, créant une dynamique sociale complexe.
+    \item Trahison et coopération : Les joueurs peuvent former des alliances pour progresser, mais la trahison reste un choix possible, créant une dynamique sociale complexe.
 \end{itemize}
 
 Nous sommes actuellement en phase de développement, avec des équipes dédiées à la conception, à la programmation, à la création artistique et à la narration. Nos objectifs incluent la création d'une expérience de jeu immersive, la mise en place d'une communauté engagée de joueurs et la mise en production du jeu sur les plateformes de distributions.
 
-Enfin Betray est bien plus qu'un jeu; c'est avant tout une expérience. Nous avons l'ambition de créer un monde où la déduction sociale et l'interaction humaine sont au centre de l'expérience de jeu. Avec un concept unique, une équipe dédiée et une vision passionnée.
+Enfin Beyond Truth est bien plus qu'un jeu; c'est avant tout une expérience. Nous avons l'ambition de créer un monde où la déduction sociale et l'interaction humaine sont au centre de l'expérience de jeu. Avec un concept unique, une équipe dédiée et une vision passionnée.
 
 \section{Origine et nature du projet}
 
 \subsection{Genèse de l'idée}
 
-L'idée de Betray est née d'une fascination pour les jeux de déduction sociale et d'une aspiration à créer une expérience qui non seulement divertirait les joueurs, mais les plongerait dans une dynamique sociale riche. Nous avons puisé notre inspiration dans des jeux emblématiques qui mêlent la confiance et la trahison, et nous avons décidé de créer notre propre vision de ce genre unique.
+L'idée de Beyond Truth est née d'une fascination pour les jeux de déduction sociale et d'une aspiration à créer une expérience qui non seulement divertirait les joueurs, mais les plongerait dans une dynamique sociale riche. Nous avons puisé notre inspiration dans des jeux emblématiques qui mêlent la confiance et la trahison, et nous avons décidé de créer notre propre vision de ce genre unique.
 
-Au fil des discussions et des réflexions, l'idée de Betray a évolué. Nous voulions que les joueurs ressentent l'intensité des décisions prises dans un environnement réaliste, tout en ajoutant des éléments de survie et d'intrigue pour renforcer l'immersion. Nous avons établi que le développement de Betray serait une opportunité d'explorer notre passion pour la programmation et de mettre en pratique nos compétences nouvellement acquises.
+Au fil des discussions et des réflexions, l'idée de Beyond Truth a évoluée. Nous voulions que les joueurs ressentent l'intensité des décisions prises dans un environnement réaliste, tout en ajoutant des éléments de survie et d'intrigue pour renforcer l'immersion. Nous avons établi que le développement de Beyond Truth serait une opportunité d'explorer notre passion pour la programmation et de mettre en pratique nos compétences nouvellement acquises.
 
 \subsection{Type de jeu : jeu de déduction sociale}
 
-Betray s'inscrit dans la catégorie des jeux de déduction sociale. Il tire son inspiration des jeux qui mettent en avant la coopération, la méfiance, et la capacité des joueurs à décoder les intentions des autres. Notre objectif est de créer une expérience immersive où la déduction sociale est au cœur de l'ergonomie du jeu.
+Beyond Truth s'inscrit dans la catégorie des jeux de déduction sociale. Il tire son inspiration des jeux qui mettent en avant la coopération, la méfiance, et la capacité des joueurs à décoder les intentions des autres. Notre objectif est de créer une expérience immersive où la déduction sociale est au cœur de l'ergonomie du jeu.
 
-En tant qu'étudiants, nous avons la chance d'explorer ce genre de jeu unique qui mêle l'aspect technique de la programmation à la complexité des interactions sociales. Betray se veut un projet pédagogique et créatif qui nous permettra de mettre en pratique nos compétences en programmation tout en développant une compréhension plus approfondie de la création de jeux vidéo.
+En tant qu'étudiants, nous avons la chance d'explorer ce genre de jeu unique qui mêle l'aspect technique de la programmation à la complexité des interactions sociales. Beyond Truth se veut un projet pédagogique et créatif qui nous permettra de mettre en pratique nos compétences en programmation tout en développant une compréhension plus approfondie de la création de jeux vidéo.
 
-L'origine de ce projet réside dans notre désir d'apprendre et de nous perfectionner dans le domaine du développement de jeux vidéo. Nous avons choisi de créer un jeu de déduction sociale en raison de son potentiel pour nous immerger dans un processus de création complexe et stimulant. Betray représente une opportunité d'appliquer nos connaissances académiques à un projet concret et de repousser les frontières de nos compétences techniques.
+L'origine de ce projet réside dans notre désir d'apprendre et de nous perfectionner dans le domaine du développement de jeux vidéo. Nous avons choisi de créer un jeu de déduction sociale en raison de son potentiel pour nous immerger dans un processus de création complexe et stimulant. Beyond Truth représente une opportunité d'appliquer nos connaissances académiques à un projet concret et de repousser les frontières de nos compétences techniques.
+
+\vspace{2.3cm}
+\includegraphics[width=0.8\linewidth]{terrain.png}
 
 \part{Secteurs concernés}
 \section{Objet de l'Étude}
@@ -157,9 +177,9 @@ L'origine de ce projet réside dans notre désir d'apprendre et de nous perfecti
 Dans le cadre de notre projet, notre objectif est d'étudier les aspects techniques et ludiques du développement d'un jeu de déduction sociale en ligne. En se concentrant sur le développement en C\# avec l'utilisation de Godot Engine, cette étude vise à atteindre plusieurs objectifs clés :
 
 \begin{enumerate}
-    \item Maîtrise du langage C\# : L'objectif principal de cette étude est de renforcer notre maîtrise de ce langage de programmation. En explorant les aspects techniques de la programmation à objet tout au long du développement de Betray, nous visons à acquérir une expertise solide dans ce langage essentiel pour la création de jeux.
+    \item Maîtrise du langage C\# : L'objectif principal de cette étude est de renforcer notre maîtrise de ce langage de programmation. En explorant les aspects techniques de la programmation orientée objet tout au long du développement de Beyond Truth, nous visons à acquérir une expertise solide dans ce langage essentiel pour la création de jeux.
 
-    \item Compréhension de Godot Engine : Il s'agit d'un moteur de jeu open source et polyvalent. Notre étude se concentre sur son utilisation pour le développement de Betray. Nous cherchons à acquérir une compréhension approfondie de cet outil, y compris ses fonctionnalités, son utilisation et ses avantages dans le développement de jeux.
+    \item Compréhension de Godot Engine : Il s'agit d'un moteur de jeu source ouverte et polyvalent. Notre étude se concentre sur son utilisation pour le développement de Beyond Truth. Nous cherchons à acquérir une compréhension approfondie de cet outil, y compris ses fonctionnalités, son utilisation et ses avantages dans le développement de jeux.
 
     \item Développement de compétences interdisciplinaires : le projet nécessite une collaboration étroite entre les membres de l'équipe, chacun apportant des compétences diverses, de la programmation à la conception artistique en passant par la narration. Notre étude vise à renforcer notre capacité à travailler en équipe et à tirer parti des compétences complémentaires de chaque membre.
 
@@ -177,34 +197,25 @@ Notre projet présente une multitude d'avantages tant pour les membres de l'équ
 
     \item Collaboration et travail d'équipe : le projet met en lumière l'importance de la collaboration interdisciplinaire. Les membres de l'équipe apprendront à travailler ensemble, à gérer un projet complexe et à exploiter les compétences complémentaires de chacun. Cela renforcera leur capacité à travailler en équipe dans des contextes professionnels variés.
 
-    \item Compréhension de la déduction sociale : Le jeu Betray repose sur la déduction sociale, ce qui offre aux membres de l'équipe une occasion unique de comprendre en profondeur les mécanismes de ce genre de jeu. Cette compréhension peut être appliquée dans des contextes variés, de la psychologie à la résolution de problèmes.
+    \item Compréhension de la déduction sociale : Le jeu Beyond Truth repose sur la déduction sociale, ce qui offre aux membres de l'équipe une occasion unique de comprendre en profondeur les mécanismes de ce genre de jeu. Cette compréhension peut être appliquée dans des contextes variés, de la psychologie à la résolution de problèmes.
 
-    \item Apprentissage de Godot Engine : le projet est une opportunité d'explorer et de maîtriser l'utilisation de Godot Engine. Cette compétence peut être transférée à d'autres projets et domaines d'application.
-
-    \item Gestion de projet : La gestion de projet est une compétence essentielle pour l'équipe. Betray permettra aux membres de développer leur capacité à planifier, organiser et suivre les progrès, des compétences utiles dans n'importe quel domaine professionnel.
-
-    \item Réalisation personnelle : Chaque membre de l'équipe pourra voir sa vision prendre forme, devenant une source de fierté et de satisfaction personnelle. Cela renforcera leur confiance en leurs compétences et leur capacité à relever des défis.
-
-    \item Préparation pour l'industrie du jeu : Pour les membres de l'équipe intéressés par une carrière dans l'industrie du jeu, Betray est une étape cruciale. Ils auront l'occasion d'acquérir de l'expérience dans le développement de jeux, de créer un portfolio professionnel et de se démarquer dans un secteur compétitif.
-
-    \item Expérience de travail pratique : Betray nous offre une véritable expérience de travail dans le développement de jeux. Cela pourra constituer un atout significatif dans notre futur parcours professionnel.
 \end{enumerate}
 
 \part{État de l'Art}
 
 \section{Les prémices du jeu}
 
-Plongez dans un monde mystérieux et captivant, où l'intrigue et la survie se conjuguent au cœur d'une île isolée. L'univers de Betray se dévoile à travers des scénarios variés, propulsant les joueurs sur cette île inhospitalière suite à un accident aérien, un naufrage ou d'autres circonstances tout aussi énigmatiques. L'île, protagoniste silencieuse de cette aventure, permet un terrain de jeu riche et diversifié.
+Plongez dans un monde mystérieux et captivant, où l'intrigue et la survie se conjuguent au cœur d'une île isolée. L'univers de Beyond Truth se dévoile à travers des scénarios variés, propulsant les joueurs sur cette île inhospitalière suite à un accident aérien, un naufrage ou d'autres circonstances tout aussi énigmatiques. L'île, protagoniste silencieuse de cette aventure, permet un terrain de jeu riche et diversifié.
 
 \textbf{Le contexte unique} : L'île est une mosaïque d'environnements qui s'étendent des plages ensoleillées aux forêts luxuriantes, en passant par des montagnes majestueuses et des grottes mystérieuses. Chaque zone possède ses propres ressources, ses dangers et ses secrets à découvrir, invitant les joueurs à explorer et à s'adapter à un monde qui ne cesse de révéler ses mystères.
 
-\textbf{Jour et nuit, Deux visages de l'Île} : Le cycle jour-nuit est au cœur de l'expérience Betray. Les journées sont baignées de lumière, favorisant la coopération, l'exploration et la collecte de ressources essentielles. Mais lorsque la nuit tombe, l'atmosphère se teinte de suspicion et de méfiance. Les feux de camp crépitants deviennent le théâtre de discussions secrètes, de manœuvres furtives et de choix cruciaux.
+\textbf{Jour et nuit, Deux visages de l'Île} : Le cycle jour-nuit est au cœur de l'expérience Beyond Truth. Les journées sont baignées de lumière, favorisant la coopération, l'exploration et la collecte de ressources essentielles. Mais lorsque la nuit tombe, l'atmosphère se teinte de suspicion et de méfiance. Les feux de camp crépitants deviennent le théâtre de discussions secrètes, de manœuvres furtives et de choix cruciaux.
 
-\textbf{La dualité coopération-trahison} : Au cœur du jeu réside l'équilibre subtil entre la coopération et la trahison. Les joueurs doivent s'allier, partager des ressources et collaborer pour survivre sur l'île. Pourtant, le défi ultime surgit lorsqu'il est temps d'envoyer un signal de SOS. Un seul joueur aura le privilège de quitter l'île, lançant ainsi un dilemme complexe : faire confiance à ses alliés ou les trahir pour sa propre évasion.
+\textbf{La dualité coopération-trahison} : Au cœur du jeu réside l'équilibre subtil entre la coopération et la trahison. Les joueurs doivent s'allier, partager des ressources et collaborer pour survivre sur l'île. Pourtant, le défi ultime surgit lorsqu'il est temps d'envoyer un signal de SOS. Au plus deux joueurs auront le privilège de quitter l'île, lançant ainsi un dilemme complexe : faire confiance à ses alliés ou les trahir pour sa propre évasion.
 
-\textbf{Les trésors dissimulés} : La survie sur l'île dépend de la collecte d'éléments essentiels tels que le bois, la nourriture, l'eau et bien d'autres ressources. Ces objets, jalousement gardés, sont à la fois le moteur de la coopération et l'étincelle de la trahison. Les joueurs devront rivaliser pour les récupérer, créant une dynamique sociale complexe.
+\textbf{Les trésors dissimulés} : La survie sur l'île dépend de la collecte d'éléments essentiels tels que le bois, la nourriture, l'eau et bien d'autres ressources. Ces objets, jalousement gardés, sont à la fois le moteur de la coopération et l'étincelle de la trahison. La rivalité pour la récupération de ces ressources limitées crée une dynamique sociale complexe.
 
-Ces prémices dessinent un tableau intrigant et immersif, où la lumière du jour révèle la beauté de l'île, tandis que la nuit cache des intentions obscures. L'île devient un lieu de survie, de défis et de choix moraux, où chaque action a des conséquences. Les prémices de Betray plongent les joueurs dans un monde mystérieux où les émotions et les interactions humaines sont à l'honneur.
+\newpage Ces prémices dessinent un tableau intrigant et immersif, où la lumière du jour révèle la beauté de l'île, tandis que la nuit cache des intentions obscures. L'île devient un lieu de survie, de défis et de choix moraux, où chaque action a des conséquences. Les prémices de Beyond Truth plongent les joueurs dans un monde mystérieux où les émotions et les interactions humaines sont à l'honneur.
 
 \section{Jeux similaires existants}
 
@@ -226,6 +237,10 @@ Ces prémices dessinent un tableau intrigant et immersif, où la lumière du jou
     \item Grande communauté : Une communauté active de joueurs, d'influenceurs et de créateurs de contenu soutiennent le jeu, contribuant à sa popularité continue.
 \end{itemize}
 
+\vspace{9cm}
+\includegraphics[width=0.8\linewidth]{among-us.png}
+
+\newpage
 \subsubsection{Fonctionnalités spécifiques}
 
 \begin{itemize}
@@ -238,13 +253,14 @@ Ces prémices dessinent un tableau intrigant et immersif, où la lumière du jou
     \item Jouabilité multiplateforme : Among Us offre une jouabilité multiplateforme, permettant aux joueurs sur PC, mobiles et consoles de jouer ensemble, ce qui renforce la diversité de la communauté.
 \end{itemize}
 
+
 \part{Le Studio NeedTime()}
 
 \section{Nom et logo du studio}
 
 \subsection{Origine du nom et du logo}
 
-Le nom du studio NeedTime() est né d'une réflexion sur l'élément temporel central de l'ergonomie de notre jeu Betray. Il reflète la nécessité urgente du temps dans le jeu, car les joueurs doivent prendre des décisions cruciales pour leur survie dans un laps de temps limité. Le nom évoque également l'idée que chaque seconde compte, une notion cruciale dans les jeux de déduction sociale où les alliances peuvent être fragiles et les trahisons rapides.
+Le nom du studio NeedTime() est né d'une réflexion sur l'élément temporel central de l'ergonomie de notre jeu Beyond Truth. Il reflète la nécessité urgente du temps dans le jeu, car les joueurs doivent prendre des décisions cruciales pour leur survie dans un laps de temps limité. Le nom évoque également l'idée que chaque seconde compte, une notion cruciale dans les jeux de déduction sociale où les alliances peuvent être fragiles et les trahisons rapides.
 
 Le logo du studio est une horloge qui pointe vers le symbolique nombre 42. Cette référence subtile à 42 rappelle le concept populaire issu de la science-fiction, du livre "\href{https://fr.wikipedia.org/wiki/La_grande_question_sur_la_vie,_l%27Univers_et_le_reste}{Le Guide du voyageur galactique}" de Douglas Adams, où le nombre 42 est la réponse à la question fondamentale de la vie, de l'univers et de tout le reste. Cela ajoute une touche d'humour et de mystère à notre identité.
 
@@ -257,13 +273,13 @@ L'utilisation des couleurs dans notre logo est soigneusement réfléchie pour re
     \item Noir (Chiffres de l'horloge) : Le noir symbolise le mystère et la profondeur. Il représente les heures sombres de la nuit où la trahison peut se cacher, ainsi que l'aspect complexe de la déduction sociale.
 \end{itemize}
 
-\subsection{Dépôt de marque à l'INPI}
+\subsection{Dépôt de marque à l'Inpi}
 
-Conscients de l'importance de protéger notre identité et notre propriété intellectuelle, nous prévoyons d'entreprendre des démarches pour le dépôt de marque à l'INPI. Ce dépôt de marque garantira que notre nom de studio, ainsi que notre logo distinctif, soient officiellement reconnus et protégés en tant que propriété intellectuelle.
+Conscients de l'importance de protéger notre identité et notre propriété intellectuelle, nous prévoyons d'entreprendre des démarches pour le dépôt de marque à l'\href{https://fr.wikipedia.org/wiki/Institut_national_de_la_propri%C3%A9t%C3%A9_industrielle}{Inpi}. Ce dépôt de marque garantira que notre nom de studio, ainsi que notre logo distinctif, soient officiellement reconnus et protégés en tant que propriété intellectuelle.
 
-Le dépôt de marque à l'INPI est une étape cruciale pour protéger nos droits exclusifs sur le nom de studio NeedTime() et sur notre logo. Cela nous permettra de l'utiliser sans crainte de contrefaçon et de garantir notre unicité sur le marché. De plus, cela renforce notre position en matière de propriété intellectuelle, ce qui peut être essentiel pour de futures négociations, partenariats et opportunités de développement.
+Le dépôt de marque est une étape cruciale pour protéger nos droits exclusifs sur le nom de studio NeedTime() et sur notre logo. Cela nous permettra de l'utiliser sans crainte de contrefaçon et de garantir notre unicité sur le marché. De plus, cela renforce notre position en matière de propriété intellectuelle, ce qui peut être essentiel pour de futures négociations, partenariats et opportunités de développement.
 
-Le processus de dépôt de marque à l'INPI sera délégué à un consultant externe, une équipe juridique pour garantir sa réussite. Cela démontre notre engagement à protéger notre identité visuelle et à préserver notre créativité pour le jeu Betray et pour d'autres projets futurs. Nous croyons que cela renforcera notre position sur le marché et contribuera à notre succès continu en tant que studio de développement de jeux.
+Le processus de dépôt de marque sera délégué à un consultant externe, une équipe juridique pour garantir sa réussite. Cela démontre notre engagement à protéger notre identité visuelle et à préserver notre créativité pour le jeu Beyond Truth et pour d'autres projets futurs. Nous croyons que cela renforcera notre position sur le marché et contribuera à notre succès continu en tant que studio de développement de jeux.
 
 \section{Spécificités de l'entreprise}
 
@@ -275,11 +291,17 @@ En tant qu'étudiants, cette option offre également une flexibilité qui corres
 
 Nous continuerons à explorer les options juridiques pour la structure du projet, en s'adaptant à l'évolution de celui-ci et des besoins de l'équipe. Quelle que soit la forme juridique finale, notre objectif est de créer une entreprise qui favorise l'innovation, la créativité et la réussite dans le monde du développement de jeux vidéo.
 
+\subsection{Capital social de l'entreprise}
+
+Le capital social de notre entreprise est solidement ancré dans une philosophie de gestion responsable et efficiente. Nous nous engageons à maximiser l'utilisation de solutions gratuites et open-source afin d'optimiser nos ressources. Notre stratégie repose essentiellement sur le référencement naturel pour garantir une visibilité dans les moteurs de recherche de notre jeu. Cependant, certains coûts sont à prévoir pour assurer une mise en production réussie sur les plateformes de distribution de contenu, garantissant ainsi une expérience optimale pour nos utilisateurs. 
+
+Ces coûts futurs comprennent l'acquisition d'un nom de domaine via OVH (environ 9€), le dépôt de marque à l'INPI (environ 230€) pour la protection de notre propriété intellectuelle, ainsi qu'un budget marketing dédié (plus de 400€) pour la promotion ciblée de notre jeu. Cette approche financièrement responsable s'aligne sur notre vision du développement du projet, tout en garantissant la qualité et la performance de notre produit final.
+
 \section{Secteur d'activité}
 
 Le secteur d'activité du studio se situe dans l'industrie du développement de jeux vidéo, un marché en constante évolution. Notre entreprise se concentre sur la création de jeux de déduction sociale, une niche qui suscite un intérêt croissant parmi les joueurs.
 
-Pour financer le développement de Betray et nos projets futurs,nous envisageons plusieurs sources de financement :
+Pour financer le développement de Beyond Truth et nos projets futurs,nous envisageons plusieurs sources de financement :
 
 \begin{itemize}
     \item Investissements étudiants : Les membres de l'équipe investiront leurs ressources personnelles dans le projet, notamment du temps et des compétences techniques.
@@ -291,8 +313,7 @@ Notre modèle économique repose sur la distribution numérique du jeu, associé
 \begin{itemize}
     \item Ventes de DLC : Les joueurs peuvent acheter le jeu en tant que jeu complet, offrant une expérience de jeu totale. Nous envisageons une structure de prix compétitive pour maximiser les ventes initiales.
     \item Microtransactions cosmétiques : Pour maintenir la rentabilité et garantir un support continu du jeu, nous proposerons des microtransactions pour des éléments cosmétiques, tels que des skins, des tenues ou des éléments de personnalisation.
-    \item Extensions de contenu : Des extensions de contenu payantes pourront être introduites, ajoutant de nouvelles fonctionnalités, cartes, et mécanismes de jeu pour étendre l'expérience Betray.
-    \item Contenu gratuit : Pour encourager la rétention de la communauté, nous prévoyons de fournir des mises à jour de contenu gratuites, telles que de nouvelles cartes et des correctifs.
+    \item Extensions de contenu : Des extensions de contenu payantes pourront être introduites, ajoutant de nouvelles fonctionnalités, cartes, et mécanismes de jeu pour étendre l'expérience Beyond Truth.
 \end{itemize}
 
 \part{L'équipe}
@@ -303,48 +324,109 @@ Notre modèle économique repose sur la distribution numérique du jeu, associé
 
 \subsubsection{Keany Vy}
 
-\subsubsubsection{Rôle dans le projet}
+Céateur de logiciels autodidacte, animé par l'ambition et la passion. Sa palette de compétences s'étend du marketing, au référencement naturel et à la mise en place d'infrastructures, en passant par le développement d'applications. Il a réalisé une formation sur les Blockchains à l'\href{https://fr.wikipedia.org/wiki/%C3%89cole_polytechnique_(France)}{École Polytechnique (l'X)}, toujours désireux de contribuer à l'avancement de l'univers des logiciels.
 
 \subsubsection{Antoine}
 
-\subsubsubsection{Rôle dans le projet}
+Avec un profond intérêt pour les langages de programmation, Antoine est un développeur polyvalent et créatif. Sa palette de compétences englobe un large éventail de langages, du déroutant \href{https://fr.wikipedia.org/wiki/Brainfuck}{Brainfuck} aux langages plus courants comme C\#, Python, JavaScript et de bases solides en Caml. Antoine excelle dans la résolution de problèmes complexes et la création de logiciels robustes.
 
 \subsubsection{Félix}
 
-\subsubsubsection{Rôle dans le projet}
+Passionné par les nouvelles technologies, il se lança dans divers projets allant de l’intelligence artificiels à la modélisation 3D. Bien que n’ayant pas de connaissances approfondies dans un domaine, il préféra prioriser une certaine polyvalence. Il espère ainsi que ce projet lui permettra d’élargir sa palette de compétences ou d’en approfondir d’autres. Faut ajouter un peu plus
 
+\newpage
 \subsubsection{Yanis}
 
-\subsubsubsection{Rôle dans le projet}
+Passionné de l'innovation technologique, son précédent stage d'observation chez un développeur blockchain au sein du \href{https://fr.wikipedia.org/wiki/BPCE}{groupe BPCE} l'a immergé dans l'univers en constante évolution des technologies émergentes. Mon objectif est de collaborer avec l'équipe pour repousser les limites de la créativité et de la technologie, afin de créer une expérience de jeu exceptionnelle.
 
 \subsubsection{Hamza}
 
-\subsubsubsection{Rôle dans le projet}
+Depuis ses 13 ans, l'univers fascinant et complexe de l'informatique a été une source d'inspiration pour lui. Cette passion a été largement influencée par ses trois oncles, qui lui ont introduit cet univers captivant. Depuis lors, il a cherché à explorer cet univers à travers divers moyens, allant de stages à des recherches personnelles et même à l'apprentissage de la programmation en autodidacte.
 
 \part{Répartition des Tâches}
 
 \section{Tableau de répartition des tâches}
 
-\subsection{Tâches}
+\subsection{Tâches, rôles, suppléants}
 
-\subsection{Personnes}
+\begin{quadro}
+	\caption{Répartition des tâches}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		Membre   & Rôle du membre & Suppléant  \\
+		\hline
+		Keany Vy & Multijoueur et réseau / Site web & Yanis \\
+		Antoine & Génération de la map / Implémentation jouabilité & Félix \\
+		Félix & Modélisation 3D et objets & Hamza \\
+            Yanis & Menu (interface), sound design / Direction artistique  & Keany Vy \\
+            Hamza & Intéraction (map / joueurs), IA  & Antoine \\
+		\hline
+		Login responsable &  Login suppléant  & \\
+            \hline
+            keany-vy.khun@epita.fr & yanis.jerjini@epita.fr & \\
+            antoine.mulot@epita.fr & felix.despretz@epita.fr & \\
+            felix.despretz@epita.fr & hamza.khamchane@epita.fr & \\
+            yanis.jerjini@epita.fr & keany-vy.khun@epita.fr & \\
+            hamza.khamchane@epita.fr & antoine.mulot@epita.fr & \\
+            \hline
+	\end{tabular}
+	\legend{Ce tableau réparti les tâches des membres de l'équipe dans le projet}
+\end{quadro}
 
-\subsection{Responsable}
+\section{Avancement et Planification}
 
-\subsection{Suppléant}
+\subsection{Tableau de planification d'avancement des tâches}
 
-\part{ Avancement et Planification}
-
-\section{Tableau de planification d'avancement des tâches}
-
-\subsection{Tâches}
-
-\subsection{Soutenances}
-
-\subsection{Pourcentage d'avancement}
-
-\newpage
-
-\bibliography{referencias}
-
-\end{document}
+    \begin{center}
+    \begin{ganttchart}[
+        y unit title=0.4cm,
+        y unit chart=0.5cm,
+        vgrid,
+        hgrid,
+        title label anchor/.style={below=-1.6ex},
+        title left shift=.05,
+        title right shift=-.05,
+        title height=1,
+        progress label text={},
+        bar height=0.7,
+        group right shift=0,
+        group top shift=.6,
+        group height=.3,
+        bar/.append style={fill=myforestgreen},
+        bar/.append style={draw=black!50},
+        bar incomplete/.style={fill=myred}
+    ]{1}{24}
+    
+    % Labels
+    \gantttitle{Diagramme de Gantt}{24} \\
+    \gantttitle{Soutenance 22-29 janvier}{8}
+    \gantttitle{Soutenance 18-22 mars}{8}
+    \gantttitle{Soutenance 17-21 juin}{8} \\
+    
+    % Tâches
+    \ganttbar[progress=15]{Site web}{1}{11} 
+    \ganttbar[progress=0]{}{22}{24}\\
+    \ganttbar[progress=0]{Conception des personnages}{1}{13}
+    \ganttbar[progress=0]{}{23}{24}\\
+    \ganttbar[progress=3]{}{1}{5}
+    \ganttbar[progress=0]{Modélisation 3D}{12}{20} \\
+    \ganttbar[progress=10]{Développement Lore}{1}{17}\\
+    \ganttbar[progress=0]{Intereactions joueurs/carte}{3}{17}
+    \ganttbar[progress=0]{}{22}{24}\\
+    \ganttbar[progress=0]{Implémentation jouabilité}{5}{19}\\
+    \ganttbar[progress=0]{Intelligence artificielle}{6}{20}\\
+    \ganttbar[progress=0]{Animations}{7}{13}\\
+    \ganttbar[progress=0]{}{1}{2}
+    \ganttbar[progress=0]{Multijoueur}{9}{24} \\
+    \ganttbar[progress=0]{}{1}{3}
+    \ganttbar[progress=0]{Interface graphique du jeu}{14}{24}\\
+    \ganttbar[progress=5]{Génération de la carte}{1}{6}
+    \ganttbar[progress=0]{}{15}{24}\\
+    \ganttbar[progress=0]{}{4}{8}
+    \ganttbar[progress=0]{Textures / Rendu}{16}{24}\\
+    \ganttbar[progress=0]{Sons / Effets spéciaux}{20}{24}
+    
+    \end{ganttchart}
+    \end{center}
+    \end{document}

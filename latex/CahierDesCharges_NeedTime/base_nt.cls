@@ -113,7 +113,7 @@
 %QUADRO
 
 % Defina um novo tipo de float chamado "quadro"
-\DeclareFloatingEnvironment[fileext=qdr,placement={!ht},name=Quadro]{quadro}
+\DeclareFloatingEnvironment[fileext=qdr,placement={!ht},name=Tableau]{quadro}
 
 
 \captionsetup[quadro]{position=top, labelsep=endash, font=footnotesize}
