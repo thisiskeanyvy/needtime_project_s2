@@ -10,14 +10,15 @@ config_version=5
 
 [application]
 
-config/name="App"
+config/name="map project"
+run/main_scene="res://Scenes/Main_World.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]
 
-project/assembly_name="App"
+project/assembly_name="map project"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/terrain_3d/plugin.cfg")
+enabled=PackedStringArray()

@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwvjhdyygqr2i"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://dp30t1wmyk2wb" path="res://Assets/Main_World/3DTerrain_Textures/new_terrain_3d_storage.res" id="1_gr478"]
+[ext_resource type="Terrain3DMaterial" uid="uid://ddwtmrvavusp5" path="res://Assets/Main_World/3DTerrain_Textures/new_terrain_3d_material.tres" id="2_bggw8"]
+[ext_resource type="Terrain3DTextureList" uid="uid://drtcbrf6557jm" path="res://Assets/Main_World/3DTerrain_Textures/texture_list.tres" id="3_xmipc"]
+[ext_resource type="Material" uid="uid://dx5lyhi1w2ckc" path="res://Assets/Main_World/Textures/water/water-shader/new_shader_material.tres" id="4_l625t"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_ohje4"]
+lightmap_size_hint = Vector2i(7502, 7502)
+size = Vector2(1500, 1500)
+subdivide_width = 500
+subdivide_depth = 500
+orientation = 1
+
+[node name="Environment" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_gr478")
+material = ExtResource("2_bggw8")
+texture_list = ExtResource("3_xmipc")
+
+[node name="WaterMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.840302, 8.39806, 1.48822)
+mesh = SubResource("QuadMesh_ohje4")
+surface_material_override/0 = ExtResource("4_l625t")

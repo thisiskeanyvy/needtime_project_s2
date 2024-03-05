@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3 uid="uid://csrchscapw780"]
+
+[ext_resource type="Terrain3DStorage" uid="uid://b6wfsvwg07ia5" path="res://addons/new_terrain_3d_storage.res" id="1_d8dwc"]
+[ext_resource type="Terrain3DMaterial" uid="uid://bvpy2u7je5hmv" path="res://addons/new_terrain_3d_material.tres" id="2_gg5tr"]
+[ext_resource type="Terrain3DTextureList" uid="uid://dal3jhw6241qg" path="res://demo/data/texture_list.tres" id="3_7cfjp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_iwh4m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tcljh"]
+size = Vector3(19, 15, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3x0jq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_konw3"]
+
+[sub_resource type="Environment" id="Environment_gkc4g"]
+
+[node name="movScene" type="Node3D"]
+
+[node name="Terrain3D" type="Terrain3D" parent="."]
+storage = ExtResource("1_d8dwc")
+material = ExtResource("2_gg5tr")
+texture_list = ExtResource("3_7cfjp")
+
+[node name="ramp" type="StaticBody3D" parent="."]
+transform = Transform3D(0.258819, -0.965926, 0, 0.965926, 0.258819, 0, 0, 0, 1, 232, 44.1617, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ramp"]
+transform = Transform3D(19, -9.53674e-07, 0, 9.53674e-07, 19, 0, 0, 0, 5, -0.5, -4, 0)
+mesh = SubResource("BoxMesh_iwh4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ramp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.499954, -3.99991, 0)
+shape = SubResource("BoxShape3D_tcljh")
+
+[node name="ramp2" type="StaticBody3D" parent="."]
+transform = Transform3D(0.866025, -0.5, 0, 0.5, 0.866025, 0, 0, 0, 1, 223, 49.1617, -8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ramp2"]
+transform = Transform3D(19, 0, 0, 0, 19, 0, 0, 0, 5, 0, -4, 0)
+mesh = SubResource("BoxMesh_iwh4m")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ramp2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
+shape = SubResource("BoxShape3D_tcljh")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 228, 48, 4)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_3x0jq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_konw3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 1, 0, 0, 544, 402, 14)
+shadow_bias = 1.0
+shadow_transmittance_bias = 16.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_gkc4g")
