@@ -21,7 +21,8 @@ using System.Timers;
             listener.Start();
             Console.WriteLine("Server started.");
 
-            // Créer un timer pour envoyer "Bonjour" toutes les 50 ms (représente la position du host)
+            // Envoie toutes les 50 ms (représente la position du host)
+            // Dans Godot implémentation en tant que task de fond
             timer = new System.Timers.Timer(50);
             timer.Elapsed += OnTimedEvent;
             timer.AutoReset = true;
@@ -42,6 +43,8 @@ using System.Timers;
 
         private static void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
+            //Appel de la méthode qui récupère les coordonnées côté serveur
+            //Puis les passer en paramètre dans sendToAllClients
             SendToAllClients("(0,position host)");
         }
 
@@ -56,6 +59,7 @@ using System.Timers;
             string message;
             while (!string.IsNullOrEmpty((message = Console.ReadLine())))
             {
+                //Passer en paramètre les coordonnées du client dans message
                 SendMessage(client, message);
             }
 
@@ -102,6 +106,7 @@ using System.Timers;
             {
                 try
                 {
+                    // Aucune données à toucher ici
                     NetworkStream stream = client.GetStream();
                     stream.Write(buffer, 0, buffer.Length);
                 }
@@ -122,7 +127,8 @@ using System.Timers;
                 if (bytesRead > 0)
                 {
                     string receivedMessage = Encoding.ASCII.GetString(buffer, 0, bytesRead);
-                    Console.WriteLine("Message received from server: " + receivedMessage);
+                    Console.WriteLine("Message received from server: " + receivedMessage); //parse le receiveMessage côté client
+                    //Appel de la méthode pour changer les coordonées
                 }
             }
         }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/afs/cri.epita.fr/user/k/ke/keany-vy.khun/u/travail/test/GodotMulti/GodoMulti/GodoMulti.csproj": {}
+    "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/GodoMulti.csproj": {}
   },
   "projects": {
-    "/afs/cri.epita.fr/user/k/ke/keany-vy.khun/u/travail/test/GodotMulti/GodoMulti/GodoMulti.csproj": {
+    "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/GodoMulti.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/afs/cri.epita.fr/user/k/ke/keany-vy.khun/u/travail/test/GodotMulti/GodoMulti/GodoMulti.csproj",
+        "projectUniqueName": "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/GodoMulti.csproj",
         "projectName": "GodoMulti",
-        "projectPath": "/afs/cri.epita.fr/user/k/ke/keany-vy.khun/u/travail/test/GodotMulti/GodoMulti/GodoMulti.csproj",
-        "packagesPath": "/home/keany-vy.khun/.nuget/packages/",
-        "outputPath": "/afs/cri.epita.fr/user/k/ke/keany-vy.khun/u/travail/test/GodotMulti/GodoMulti/obj/",
+        "projectPath": "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/GodoMulti.csproj",
+        "packagesPath": "/home/drwho/.nuget/packages/",
+        "outputPath": "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/keany-vy.khun/.nuget/NuGet/NuGet.Config"
+          "/home/drwho/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -48,12 +48,26 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[7.0.16, 7.0.16]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.16, 7.0.16]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/nix/store/ci5fz6l5vybg2c6v3cz9f3bhf3pxskp6-dotnet-sdk-7.0.405/sdk/7.0.405/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/var/run/host/usr/share/dotnet/sdk/8.0.200/RuntimeIdentifierGraph.json"
         }
       }
     }

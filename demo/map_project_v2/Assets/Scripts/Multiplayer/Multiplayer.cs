@@ -131,7 +131,7 @@ public partial class Multiplayer : Node3D
 		return res;
 	}
 
-	public void Update(string data)
+	public void Update(string data) //Besoin de précisions sur ce qu'elle prend en paramètre (data) si tuple ou données simple
 	{
 		GD.Print(data);
 		var updates = data.Split(';');
@@ -197,6 +197,7 @@ public partial class Multiplayer : Node3D
 
 	private void OnTimedEvent(Object source, ElapsedEventArgs e)
 	{
+		//Appel à la méthode pour avoir les coordonnées côté serveur
 		SendToAllClients("(0,position host)");
 		//GD.Print(JsonConvert.SerializeObject<Dictionary<int, Transform3D>>(players));
 	}
@@ -204,7 +205,10 @@ public partial class Multiplayer : Node3D
 	private void SendMessageOnTimer(Object source, ElapsedEventArgs e, TcpClient client)
 	{
 		//GD.Print("send message to server");
-		SendMessage(client, "message"); // targets to sync (json format)
+		//méthode côté client
+		//changer le paramètre message par des coordonnées
+		//Appelle à la méthode pour récupérer les coordonnées côté client
+		SendMessage(client, "(0,0,0)"); // targets to sync (json format)
 	}
 	
 	public void StartClient()
@@ -240,6 +244,7 @@ public partial class Multiplayer : Node3D
 			{
 				string receivedMessage = Encoding.ASCII.GetString(buffer, 0, bytesRead);
 				receivedMessage = $"({clientId},{receivedMessage})";
+				//Appel à la méthode update pour changer les coordonnées des clients côté serveur
 				GD.Print("Message received from " + client.Client.RemoteEndPoint + ": " + receivedMessage);
 				BroadcastMessage($"({clientId},{receivedMessage})", client);
 			}
@@ -288,8 +293,10 @@ public partial class Multiplayer : Node3D
 			{
 				string receivedMessage = Encoding.ASCII.GetString(buffer, 0, bytesRead);
 				GD.Print("Message received from server: " + receivedMessage /*JsonConvert.DeserializeObject<Dictionary<int, Transform3D>>(receivedMessage)*/);
+				//Appel à la méthode pour changer les coordonées avec comme paramètre receivedMessage
 			}
-			//Update(); // update everyone's coordinates
+			//Update(); // update everyone's coordinates : (keany vy) Pourquoi l'appeller après le if ?
+			//Si on l'appelle après le if il va update même si les données reçues côté client sont vides (d'où buffer > 0)
 		}
 		
 	}

@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "fCgwbSdfQ34CrO7mzzUQv1yea/YQjCUgryA9cQb1/gLSlI1tGVHLioj9LBnh22AWLYoqb6bNSA4zEc+xpdjEGg==",
+  "dgSpecHash": "8IEtDNSWEON4S4AOngJmLZB55Hz9VnIWAsEWVebsQMf0FnxhDAHfAet+YlXgqCgMDsde+eO1efGegRaHSLa7ng==",
   "success": true,
-  "projectFilePath": "/home/keany-vy.khun/afs/travail/test/GodotMulti/GodoMulti/GodoMulti.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "/home/drwho/Documents/needtime/needtime_project_s2/demo/GodotMulti/GodoMulti/GodoMulti.csproj",
+  "expectedPackageFiles": [
+    "/home/drwho/.nuget/packages/microsoft.netcore.app.ref/7.0.16/microsoft.netcore.app.ref.7.0.16.nupkg.sha512",
+    "/home/drwho/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.16/microsoft.aspnetcore.app.ref.7.0.16.nupkg.sha512",
+    "/home/drwho/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.16/microsoft.netcore.app.host.linux-x64.7.0.16.nupkg.sha512"
+  ],
   "logs": []
 }
