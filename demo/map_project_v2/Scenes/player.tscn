@@ -1,0 +1,63 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8ft6dhq8rgty"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Player/PlayerMovement.cs" id="1_cywek"]
+[ext_resource type="Script" path="res://Assets/Scripts/Inventory/PickupItem.cs" id="2_ldtm2"]
+[ext_resource type="Script" path="res://Assets/Scripts/Player/StatsComponent.cs" id="3_ejxjk"]
+[ext_resource type="Script" path="res://Assets/Scripts/Inventory/PlayerInventory.cs" id="4_et8nb"]
+[ext_resource type="Script" path="res://Assets/Scripts/Inventory/PutDownItem.cs" id="5_pm318"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_obh0l"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4l40e"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_sk7d1"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_abicn"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(0.0371624, 0, 1.79962, 0, 1.8, 0, -1.79962, 0, 0.0371624, -271.363, 61.1641, -4.6712)
+script = ExtResource("1_cywek")
+
+[node name="PlayerMesh" type="CSGMesh3D" parent="."]
+mesh = SubResource("CapsuleMesh_obh0l")
+
+[node name="PlayerCollisionShape" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_4l40e")
+
+[node name="PlayerCameraTarget" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.575413, 0.289196)
+
+[node name="PickupRaycast" type="RayCast3D" parent="PlayerCameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.8388)
+target_position = Vector3(0, 0, 2)
+hit_from_inside = true
+hit_back_faces = false
+collide_with_areas = true
+collide_with_bodies = false
+debug_shape_custom_color = Color(1, 0, 0, 1)
+script = ExtResource("2_ldtm2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCameraTarget"]
+transform = Transform3D(0.535754, 0, 0, 0, 0.474446, 0, 0, 0, 1, 0, 0, -2.8388)
+mesh = SubResource("QuadMesh_sk7d1")
+skeleton = NodePath("../PickupRaycast")
+
+[node name="DropItemPosition" type="Node3D" parent="PlayerCameraTarget"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.83666)
+
+[node name="PlayerStatsComponent" type="Node" parent="."]
+script = ExtResource("3_ejxjk")
+
+[node name="InventorySystem" type="Node" parent="."]
+script = ExtResource("4_et8nb")
+
+[node name="PutDownRaycast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.07541, -2.54746)
+target_position = Vector3(0, -8, 0)
+script = ExtResource("5_pm318")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_abicn")

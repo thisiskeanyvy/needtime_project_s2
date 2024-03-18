@@ -1,0 +1,101 @@
+[gd_scene load_steps=19 format=3 uid="uid://ccnpite40ru2w"]
+
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter.gd" id="1_c1tje"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/stack/modifier_stack.gd" id="2_h8nd4"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/create_inside_random.gd" id="3_mdq5r"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/randomize_transforms.gd" id="4_y80fy"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/relax.gd" id="5_pffve"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_geometry.gd" id="6_gr8wq"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/modifiers/project_on_terrain3d.gd" id="7_8ldtc"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_item.gd" id="8_o4qct"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/scatter_shape.gd" id="9_s6y1d"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="10_lnbcl"]
+[ext_resource type="Script" path="res://addons/proton_scatter/src/common/physics_helper.gd" id="11_y3gk1"]
+
+[sub_resource type="Resource" id="Resource_ln75i"]
+script = ExtResource("3_mdq5r")
+amount = 75
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 1
+
+[sub_resource type="Resource" id="Resource_ym4kk"]
+script = ExtResource("4_y80fy")
+position = Vector3(0.15, 0.15, 0.15)
+rotation = Vector3(2, 360, 2)
+scale = Vector3(0.1, 0.1, 0.1)
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 2
+
+[sub_resource type="Resource" id="Resource_dp4be"]
+script = ExtResource("5_pffve")
+iterations = 3
+offset_step = 0.2
+consecutive_step_multiplier = 0.75
+use_computeshader = true
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = true
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_r0121"]
+script = ExtResource("6_gr8wq")
+ray_direction = Vector3(0, -1, 0)
+ray_length = 100000.0
+ray_offset = 5.0
+remove_points_on_miss = false
+align_with_collision_normal = false
+max_slope = 90.0
+collision_mask = 1
+exclude_mask = 0
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_dmspt"]
+script = ExtResource("7_8ldtc")
+terrain_node = NodePath("..")
+align_with_collision_normal = false
+enabled = true
+override_global_seed = false
+custom_seed = 0
+restrict_height = false
+reference_frame = 0
+
+[sub_resource type="Resource" id="Resource_va2ny"]
+script = ExtResource("2_h8nd4")
+stack = Array[Resource("res://addons/proton_scatter/src/modifiers/base_modifier.gd")]([SubResource("Resource_ln75i"), SubResource("Resource_ym4kk"), SubResource("Resource_dp4be"), SubResource("Resource_r0121"), SubResource("Resource_dmspt")])
+
+[sub_resource type="Resource" id="Resource_5e1e6"]
+script = ExtResource("10_lnbcl")
+size = Vector3(97.615, 14.8951, 79.9702)
+
+[node name="ProtonScatter" type="Node3D"]
+script = ExtResource("1_c1tje")
+modifier_stack = SubResource("Resource_va2ny")
+Performance/use_chunks = true
+Performance/chunk_dimensions = Vector3(15, 15, 15)
+
+[node name="ScatterItem" type="Node3D" parent="."]
+script = ExtResource("8_o4qct")
+source = 0
+source_scale_multiplier = 2.0
+path = "../../sapling"
+
+[node name="ScatterShape" type="Node3D" parent="."]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, 0, 0, 0)
+script = ExtResource("9_s6y1d")
+shape = SubResource("Resource_5e1e6")
+
+[node name="PhysicsHelper" type="Node" parent="."]
+script = ExtResource("11_y3gk1")
+
+[node name="ScatterOutput" type="Marker3D" parent="."]

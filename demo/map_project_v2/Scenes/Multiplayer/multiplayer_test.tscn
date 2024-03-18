@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbxp4yn616lbn"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Multiplayer/Multiplayer.cs" id="1_bglkp"]
+
+[node name="Multiplayer_Test" type="Node3D"]
+script = ExtResource("1_bglkp")
+
+[node name="Host" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 80)
+offset_left = 1.0
+offset_top = 406.0
+offset_right = 106.0
+offset_bottom = 485.0
+text = "Host
+"
+
+[node name="Join" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 80)
+offset_left = 1.0
+offset_top = 508.0
+offset_right = 151.0
+offset_bottom = 588.0
+text = "Join
+"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+_spawnable_scenes = PackedStringArray("res://Scenes/player.tscn")
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Join" to="." method="_on_join_pressed"]

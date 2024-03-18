@@ -1,0 +1,30 @@
+[gd_resource type="Terrain3DTextureList" load_steps=10 format=3 uid="uid://drtcbrf6557jm"]
+
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/grass/color.dds" id="1_ons6p"]
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/grass/normal-rough.dds" id="2_22vnl"]
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/rock-030/rock-030_alb_hgt.dds" id="3_vnfea"]
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/rock-030/rock-030_nrm_rgh.dds" id="4_ufspr"]
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/ground-062S/ground-texture.dds" id="5_goqtu"]
+[ext_resource type="Texture2D" path="res://Assets/Main_World/Textures/ground-062S/ground-hgt-uv.dds" id="6_8b65o"]
+
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_jghc3"]
+albedo_color = Color(0.411765, 0.792157, 0.631373, 1)
+albedo_texture = ExtResource("1_ons6p")
+normal_texture = ExtResource("2_22vnl")
+uv_scale = 0.266
+uv_rotation = 0.429
+
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_05517"]
+texture_id = 1
+albedo_texture = ExtResource("3_vnfea")
+normal_texture = ExtResource("4_ufspr")
+uv_scale = 0.018
+
+[sub_resource type="Terrain3DTexture" id="Terrain3DTexture_edbfu"]
+texture_id = 2
+albedo_texture = ExtResource("5_goqtu")
+normal_texture = ExtResource("6_8b65o")
+uv_scale = 0.168
+
+[resource]
+textures = Array[Terrain3DTexture]([SubResource("Terrain3DTexture_jghc3"), SubResource("Terrain3DTexture_05517"), SubResource("Terrain3DTexture_edbfu")])

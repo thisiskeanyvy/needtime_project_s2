@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource type="Script" path="res://addons/zylann.hterrain/tools/texture_editor/texture_editor.gd" id="1"]
-[ext_resource type="PackedScene" path="res://addons/zylann.hterrain/tools/texture_editor/texture_list.tscn" id="2"]
+[ext_resource path="res://addons/zylann.hterrain/tools/texture_editor/texture_editor.gd" type="Script" id=1]
+[ext_resource path="res://addons/zylann.hterrain/tools/texture_editor/texture_list.tscn" type="PackedScene" id=2]
 
 [node name="TextureEditor" type="Control"]
 offset_right = 352.0

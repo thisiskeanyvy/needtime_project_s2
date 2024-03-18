@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc1n6c163lgru"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Inventory/InventorySlotDisplay.cs" id="1_ampu7"]
+[ext_resource type="Texture2D" uid="uid://crrlhwpwuosoy" path="res://Assets/Images/InventoryItems/inventory_slot.png" id="1_dhtbm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_etx4y"]
+font_color = Color(0.0196078, 0.0196078, 0.0196078, 1)
+
+[node name="inv_ui_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(200, 200)
+offset_right = 200.0
+offset_bottom = 200.0
+script = ExtResource("1_ampu7")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(-1.19355, 0)
+scale = Vector2(0.33871, 0.339559)
+texture = ExtResource("1_dhtbm")
+centered = false
+offset = Vector2(5, 0)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="ItemDisplay" type="Sprite2D" parent="CenterContainer/Panel"]
+position = Vector2(0, -10)
+
+[node name="Quantity" type="Label" parent="."]
+layout_mode = 2
+offset_left = 172.0
+offset_top = 177.0
+offset_right = 200.0
+offset_bottom = 200.0
+text = "111"
+label_settings = SubResource("LabelSettings_etx4y")
+horizontal_alignment = 1
+vertical_alignment = 1

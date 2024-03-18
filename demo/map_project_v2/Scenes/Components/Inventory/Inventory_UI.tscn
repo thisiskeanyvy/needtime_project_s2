@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyvkbd2ftbnhx"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/UI/Inventory/Inventory_UI.cs" id="1_x05l0"]
+[ext_resource type="PackedScene" uid="uid://dc1n6c163lgru" path="res://Scenes/Components/Inventory/InventorySlot.tscn" id="2_0sh21"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6j5nq"]
+font_size = 40
+
+[sub_resource type="LabelSettings" id="LabelSettings_06l1h"]
+font_size = 32
+
+[node name="Inventory_UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_x05l0")
+
+[node name="Background" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.34902)
+layout_mode = 0
+offset_left = 245.0
+offset_top = 200.0
+offset_right = 1668.0
+offset_bottom = 811.0
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 209.0
+offset_right = 440.0
+offset_bottom = 264.0
+text = "Inventory"
+label_settings = SubResource("LabelSettings_6j5nq")
+
+[node name="Stats" type="Node2D" parent="."]
+
+[node name="Name" type="Label" parent="Stats"]
+offset_left = 1500.0
+offset_top = 300.0
+offset_right = 1588.0
+offset_bottom = 345.0
+text = "Stats:"
+label_settings = SubResource("LabelSettings_06l1h")
+
+[node name="Slots" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 350.0
+offset_top = -100.0
+offset_right = -758.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="inv_ui_slot1" parent="Slots" instance=ExtResource("2_0sh21")]
+layout_mode = 2
+
+[node name="inv_ui_slot2" parent="Slots" instance=ExtResource("2_0sh21")]
+layout_mode = 2
+
+[node name="inv_ui_slot3" parent="Slots" instance=ExtResource("2_0sh21")]
+layout_mode = 2
+
+[node name="inv_ui_slot4" parent="Slots" instance=ExtResource("2_0sh21")]
+layout_mode = 2
