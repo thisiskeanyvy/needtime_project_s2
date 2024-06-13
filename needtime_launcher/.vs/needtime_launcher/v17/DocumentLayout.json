@@ -1,0 +1,34 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\epita_projet\\needtime_launcher\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D1F9A1E2-1E09-4B42-A98C-C2AEB200F3A6}|NeedTimeSetup\\NeedTimeSetup.vdproj|_missiondarksnakeevolved.exe_4ae8570f3423415e86ee9d7055088d03||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MissionDarkSnakeEvolved.exe",
+              "DocumentMoniker": "D:\\epita_projet\\MissionDarkSnakeEvolved.exe",
+              "RelativeDocumentMoniker": "..\\MissionDarkSnakeEvolved.exe",
+              "ToolTip": "D:\\epita_projet\\MissionDarkSnakeEvolved.exe",
+              "RelativeToolTip": "..\\MissionDarkSnakeEvolved.exe",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2024-06-13T20:22:16.565Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

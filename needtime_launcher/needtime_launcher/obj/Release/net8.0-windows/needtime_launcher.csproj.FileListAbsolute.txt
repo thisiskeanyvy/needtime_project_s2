@@ -1,0 +1,16 @@
+D:\epita_projet\needtime_launcher\needtime_launcher\bin\Release\net8.0-windows\needtime_launcher.exe
+D:\epita_projet\needtime_launcher\needtime_launcher\bin\Release\net8.0-windows\needtime_launcher.deps.json
+D:\epita_projet\needtime_launcher\needtime_launcher\bin\Release\net8.0-windows\needtime_launcher.runtimeconfig.json
+D:\epita_projet\needtime_launcher\needtime_launcher\bin\Release\net8.0-windows\needtime_launcher.dll
+D:\epita_projet\needtime_launcher\needtime_launcher\bin\Release\net8.0-windows\needtime_launcher.pdb
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.Form1.resources
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.csproj.GenerateResource.cache
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.GeneratedMSBuildEditorConfig.editorconfig
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.AssemblyInfoInputs.cache
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.AssemblyInfo.cs
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.csproj.CoreCompileInputs.cache
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.dll
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\refint\needtime_launcher.dll
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.pdb
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\needtime_launcher.genruntimeconfig.cache
+D:\epita_projet\needtime_launcher\needtime_launcher\obj\Release\net8.0-windows\ref\needtime_launcher.dll
