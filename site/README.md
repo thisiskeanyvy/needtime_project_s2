@@ -5,7 +5,7 @@
 Exécuter la commande suivante dans le dossier du site (fonctionne page par page) :
 
 ```bash
-python3 -m http.server 
+python3 -m http.server
 ```
 
 Sinon utiliser un serveur de développement tel que :
@@ -24,7 +24,11 @@ Cela permet de ne pas pouvoir se faire copier son site et ajoute une mesure de s
 
 ## Le site
 
-Base en React, puis implémentation en vanilla JS
+Base en React, puis implémentation en Vanilla JS
 - avec du lottie files
 - du gsap et autres
 - tels que core-js etc...
+
+## Site en production
+
+https://needtime.pages.dev/
